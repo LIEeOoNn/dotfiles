@@ -25,14 +25,36 @@ then use `stow` to create symlinks
 $ stow .
 ```
 
-### stow 
+## stow 
 - Manage installation of multiple softwares in the same directory tree
 
 https://www.youtube.com/watch?v=y6XCebnB9gs&themeRefresh=1
   
 Helps with overlooking dotfiles through the dotfiles dir. 
 
-Usage: the stored files need to be at the same place as in the home directory 
-so the copied dotfile will have the same path as the initial dotfile
+#### Attention
+the dotfile needs to be at the same place in the dotfile tree,
+then in the $HOME tree.
 
-e.g. ~/.bashrc = dotfiles/.bashrc
+e.g. ~/.bashrc == dotfiles/.bashrc
+
+#### Usage
+Copy the desired dotfile to the correct place in the dotfiles tree,
+corresponding to the $HOME tree:
+```
+cp ~/.bashrc ~/dotfiles/
+```
+
+Use `ls -lha` to see if the symlink is correct 
+
+Delete/renmae the original dotfile from the $HOME folder (rename is prefered):
+```
+ mv ~/.bashrc ~/.bashrc.bak
+ ```
+
+Now we only need to run
+```
+$ stow .
+```
+in the dotfiles directory and the symlink 
+will be created.
