@@ -1,6 +1,9 @@
 {
   "position": "top",
   "modules-left": ["hyprland/workspaces"],
+  "hyprland/workspaces": {
+    "show-special": true 
+  },
   "modules-center": ["hyprland/window"],
   "modules-right": ["network", "pulseaudio", "battery", "clock"],
   "clock": {
