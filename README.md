@@ -13,6 +13,20 @@ pacam -S git
 ```
 pacman -S stow
 ```
+
+for the font i will be using 
+
+macOS
+```
+brew install --cask font-meslo-lg-nerd-font
+```
+
+linux
+```
+yay -S nerd-fonts-meslo
+fc-cache -fv
+fc-list | grep "Meslo"
+```
 ## Installation
 Check out the dotfiles repo in your `$HOME` directory using 
 
