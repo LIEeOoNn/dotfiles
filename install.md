@@ -59,6 +59,7 @@
     $ Editor=nvim visudo
      and uncomment
     ´# %wheel ALL=(ALL:ALL) ALL´
+    $ passwd 'username'
 
 12. $ genfstab -U /mnt >> /mnt/etc/fstab
     $ grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
