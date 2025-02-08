@@ -14,23 +14,25 @@
     this will be the boot partition so make it +1G
     afterwards make the root partition the rest of the left space doing  
     $ > n  // if asked 'remove signature' say 'yes'
+    $ > n // again and just press enter again removing signature if given 
+    this will be rest of the drive
     then use 'w' to save everything 
     $ > w
 
-2.  make boot partition uefi compatiable 
+3.  make boot partition uefi compatiable 
     $ mkfs.fat -F32 /dev/The_boot_partition
     and a filesytem for the other 
     $ mkfs.btrfs /dev/the_root_partition 
 
-3.  mount boot and root 
+4.  mount boot and root 
     $ mount /dev/the_big_one /mnt
     $ mkdir /mnt/boot
     $ mount /dev/the_small_one /mnt/boot
 
-4. $ nvim /etc/pacman.d/mirrorlist 
+5. $ nvim /etc/pacman.d/mirrorlist 
     move germany up
     $ pacstrap -i /mnt base base-devel linux linux-firmware grub efibootmgr git openssh firefox stow neovim vim networkmanager kitty  
-5. $ arch-chroot /mnt
+6. $ arch-chroot /mnt
 
 5.5 set time 
     $ ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
