@@ -31,8 +31,10 @@
 
 5. $ nvim /etc/pacman.d/mirrorlist 
     move germany up
+   or do
+   $ reflector --country Germany --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
     $ pacstrap -i /mnt base base-devel linux linux-firmware grub efibootmgr git openssh firefox stow neovim vim networkmanager kitty  
-6. $ arch-chroot /mnt
+7. $ arch-chroot /mnt
 
 5.5 set time 
     $ ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
