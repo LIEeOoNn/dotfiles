@@ -53,20 +53,23 @@
     ::1         localhost
     127.0.1.1   arch.localdomain arch
 
-9. sudo systemctl enable NetworkManager.service
+9. $ sudo systemctl enable NetworkManager.service
 
-10. useradd -G wheel -m 'username'
+10. $ useradd -G wheel -m 'username'
+    $ Editor=nvim visudo
+     and uncomment
+    ´# %wheel ALL=(ALL:ALL) ALL´
 
-11. $ genfstab -U /mnt >> /mnt/etc/fstab
+12. $ genfstab -U /mnt >> /mnt/etc/fstab
     $ grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
     if this isnt working add '-removeable' flag after GRUB
     $ grub-mkconfig -o /boot/grub/grub.cfg 
 
-12. $ parted /dev/sda print 
+13. $ parted /dev/sda print 
     look if the flags for sda1 are 'boot, esp' if esp missing and you are using uefi do 
     $ parted /dev/sda set 1 esp on 
 
-13.  
+14.  
 Note: if reboot doesn't work and you need to get back throught the live iso do:
         $ mount /dev/sda2 /mnt
         $ mount /dev/sda1 /mnt/boot
