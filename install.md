@@ -64,13 +64,16 @@
 12. $ genfstab -U /mnt >> /mnt/etc/fstab
     $ grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
     if this isnt working add '-removeable' flag after GRUB
-    $ grub-mkconfig -o /boot/grub/grub.cfg 
+    $ grub-mkconfig -o /boot/grub/grub.cfg
+    if you dont want to see the gurb menu everytime booting do
+    $ sudo nvim /etc/default/grub
+    set ´GRUB_TIMEOUT_STYLE=hidden´
 
-13. $ parted /dev/sda print 
+14. $ parted /dev/sda print 
     look if the flags for sda1 are 'boot, esp' if esp missing and you are using uefi do 
     $ parted /dev/sda set 1 esp on 
 
-14.  
+15.  
 Note: if reboot doesn't work and you need to get back throught the live iso do:
         $ mount /dev/sda2 /mnt
         $ mount /dev/sda1 /mnt/boot
