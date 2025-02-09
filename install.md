@@ -33,7 +33,7 @@
     move germany up
    or do
    $ reflector --country Germany --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
-    $ pacstrap -i /mnt base base-devel linux linux-firmware grub efibootmgr git openssh firefox stow neovim vim networkmanager kitty  
+    $ pacstrap -i /mnt base base-devel linux linux-firmware grub efibootmgr git openssh firefox stow neovim vim networkmanager kitty wireplumber pipewire pipewire-pulse
 7. $ arch-chroot /mnt
 
 5.5 set time 
@@ -54,8 +54,11 @@
     127.0.1.1   arch.localdomain arch
 
 9. $ sudo systemctl enable NetworkManager.service
-
-10. $ useradd -G wheel -m 'username'
+   $ sudo systemctl enable wireplumber
+   $ sudo systemctl enable pipewire
+   $ sudo systemctl enable pipewire-pulse
+   
+11. $ useradd -G wheel -m 'username'
     $ Editor=nvim visudo
      and uncomment
     ´# %wheel ALL=(ALL:ALL) ALL´
@@ -113,8 +116,8 @@ $ git clone https://aur.archlinux.org/yay.git
 $ cd yay
 $ makepkg -si
 
+isntall the follwing using yay
 hyprshot
-
 uwsm 
 
 #### flatpak 
@@ -136,4 +139,4 @@ $ git clone https://github.com/LIEeOoNn/dotfiles
 $ cd dotfiles 
 $ stow . 
 or 
-$ stow -Rvt ~ .
+$ stow -R .
