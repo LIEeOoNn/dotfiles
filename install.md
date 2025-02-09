@@ -68,6 +68,8 @@
     if you dont want to see the gurb menu everytime booting do
     $ sudo nvim /etc/default/grub
     set ´GRUB_TIMEOUT_STYLE=hidden´
+    $ grub-mkconfig -o /boot/grub/grub.cfg
+    to still see the menu hold shift or press esc
 
 14. $ parted /dev/sda print 
     look if the flags for sda1 are 'boot, esp' if esp missing and you are using uefi do 
