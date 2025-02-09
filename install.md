@@ -73,6 +73,10 @@
     set ´GRUB_TIMEOUT_STYLE=hidden´
     $ grub-mkconfig -o /boot/grub/grub.cfg
     to still see the menu hold shift or press esc
+    if you want to change the hooks
+    $ nvim /etc/mkinitcpio.conf
+    after changes update with 
+    $ sudo mkinitcpio -P
 
 14. $ parted /dev/sda print 
     look if the flags for sda1 are 'boot, esp' if esp missing and you are using uefi do 
