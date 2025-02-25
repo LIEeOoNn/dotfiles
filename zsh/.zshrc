@@ -14,5 +14,8 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# default editor to nvim 
+export EDITOR=nvim
+
 # MAN opening in nvim 
 export MANPAGER="nvim +Man!"
