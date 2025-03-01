@@ -16,6 +16,9 @@ unset __conda_setup
 
 # default editor to nvim 
 export EDITOR=nvim
-
 # MAN opening in nvim 
 export MANPAGER="nvim +Man!"
+
+# https://github.com/junegunn/fzf#setting-up-shell-integration
+# fzf setup for keybinds and completions
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
