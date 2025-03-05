@@ -22,24 +22,25 @@ Master WS25/26:
 # Potenial Profs & Topics 
 
 ## Visual Computing 
-### Learning & Optimisation for Visual Computing
+### Learning & Optimisation for Visual Computing **SEND**
     Prof. Dr. Florian Bernard
         fb@uni-bonn.de
-### Computer Graphics
+    https://lovc.cs.uni-bonn.de/index.php/teaching/
+### Computer Graphics   **wait for others first**
     Prof. Dr. Reinhard Klein 
         rk@cs.uni-bonn.de
     Prof. Dr. Matthias B. Hullin 
         hullin@cs.uni-bonn.de
 
 ## Informationssysteme & KI 
-### ML AI Lab 
+### ML AI Lab **SEND** 
     Prof. Dr. Stefan Wrobel 
         wrobel@iai.uni-bonn.de
     Prof. Dr. Christian Bauckhage
         bauckhage@iai.uni-bonn.de
-### Data Science & Intelligent Systems 
+### Data Science & Intelligent Systems **SEND** 
     Prof. Dr. Elena Demidova 
         demidova@iai.uni-bonn.de
-### Computer Vision Group 
+### Computer Vision Group **SCARED** 
     Prof. Dr. Jürgen Gall 
         gall@iai.uni-bonn.de

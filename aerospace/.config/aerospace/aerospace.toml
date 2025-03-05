@@ -10,10 +10,16 @@ after-login-command = []
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
-  'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0'
+  'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0',
+  'exec-and-forget sketchybar'
 ]
 
-# Start AeroSpace at login
+# Notify Sketchybar about workspace change
+exec-on-workspace-change = ['/bin/bash', '-c',
+    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+]
+
+# Start AeroSpace at login
 start-at-login = false
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
@@ -151,8 +157,8 @@ alt-shift-9 = 'move-node-to-workspace 9'
 alt-shift-0 = 'move-node-to-workspace 10'
 
 # Special workspace (scratchpad)
-alt-s = 'workspace special:magic'
-alt-shift-s = 'move-node-to-workspace special:magic'
+alt-s = 'workspace magic'
+alt-shift-s = 'move-node-to-workspace magic'
 
 cmd-f = 'macos-native-fullscreen'
 cmd-m = 'macos-native-minimize'
@@ -177,7 +183,7 @@ esc = 'mode main'
 # reload conifg 
 alt-shift-r = 'reload-config'
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-alt-shift-semicolon = 'mode service' 
+alt-p = 'mode service'
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]

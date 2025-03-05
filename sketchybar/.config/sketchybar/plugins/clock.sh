@@ -5,6 +5,6 @@
 # https://felixkratz.github.io/SketchyBar/config/events#events-and-scripting
 
 # Format: Day/Month/ Hour:Minute AM/PM
-DATETIME=$(date '+%d/%m %H:%M %p')
+DATETIME=$(date '+%a %d %H:%M')
 sketchybar --set "$NAME" label="$DATETIME"
 

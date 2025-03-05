@@ -7,5 +7,7 @@
     "terminal.integrated.fontFamily": "MesloLGS Nerd Font Mono",
     "terminal.integrated.fontWeight": "bold",
     "security.workspace.trust.untrustedFiles": "open",
-    "files.autoSave": "afterDelay"
+    "files.autoSave": "afterDelay",
+    "editor.minimap.enabled": false,
+    "workbench.iconTheme": "file-icons"
 }
