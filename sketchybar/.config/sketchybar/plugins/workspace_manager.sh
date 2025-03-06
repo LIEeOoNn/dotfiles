@@ -7,16 +7,11 @@ CONFIG_DIR="${CONFIG_DIR:-$HOME/.config/sketchybar}"
 NON_EMPTY=($(/opt/homebrew/bin/aerospace list-workspaces --monitor focused --empty no))
 FOCUSED=$(/opt/homebrew/bin/aerospace list-workspaces --focused)
 
-# Debug output
-echo "Non-empty workspaces: ${NON_EMPTY[@]}" >> /tmp/workspace_debug.log
-echo "Focused workspace: $FOCUSED" >> /tmp/workspace_debug.log
-
 # Combine workspaces to show (non-empty + focused)
 WORKSPACES_TO_SHOW=($(echo "${NON_EMPTY[@]}"$'\n'"$FOCUSED" | sort -un))
 
 # Get existing space items from SketchyBar
 EXISTING=($(sketchybar --query bar | jq -r '.items[] | select(startswith("space."))'))
-echo "Existing workspaces: ${EXISTING[@]}" >> /tmp/workspace_debug.log
 
 # Remove workspaces that shouldn't be shown
 for existing in "${EXISTING[@]}"; do
@@ -45,12 +40,6 @@ for sid in "${WORKSPACES_TO_SHOW[@]}"; do
                   --subscribe "space.$sid" aerospace_workspace_change
     fi
 done
-
-# Add these lines to check workspace states
-echo "Checking workspace $sid:" >> /tmp/workspace_debug.log
-echo "  In NON_EMPTY: ${NON_EMPTY[@]}" >> /tmp/workspace_debug.log
-echo "  Is focused: $FOCUSED" >> /tmp/workspace_debug.log
-echo "  Should remove: $([[ ! " ${NON_EMPTY[@]} " =~ " ${sid} " && "$sid" != "$FOCUSED" ]])" >> /tmp/workspace_debug.log
 
 # Force initial update
 sketchybar --trigger workspace_update

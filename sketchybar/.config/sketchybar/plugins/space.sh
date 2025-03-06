@@ -14,10 +14,6 @@ fi
 # Get focused workspace
 FOCUSED=$(/opt/homebrew/bin/aerospace list-workspaces --focused)
 
-# Debug output
-#echo "$(date) - Script executed for $NAME (ID: $WORKSPACE_ID)" >> /tmp/space_debug.log
-#echo "Focused: $FOCUSED" >> /tmp/space_debug.log
-
 # Highlight if focused
 if [ "$WORKSPACE_ID" = "$FOCUSED" ]; then
     sketchybar --set $NAME \

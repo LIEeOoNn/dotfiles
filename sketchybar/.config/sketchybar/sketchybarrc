@@ -33,25 +33,11 @@ sketchybar --add item apple.logo left \
 # Add Aerospace workspace event handler
 sketchybar --add event aerospace_workspace_change
 
-# Add workspace manager with correct subscription
+# Add workspace manager 
 sketchybar --add item workspace_manager left \
            --set workspace_manager \
            script="$PLUGIN_DIR/workspace_manager.sh" \
            --subscribe workspace_manager aerospace_workspace_change
-
-# Add workspace indicators
-# for sid in $(/opt/homebrew/bin/aerospace list-workspaces --monitor focused --empty no); do
-#     sketchybar --add item space.$sid left \
-#         --subscribe space.$sid aerospace_workspace_change \
-#         --set space.$sid \
-#         background.color=0x44ffffff \
-#         background.corner_radius=4 \
-#         background.height=20 \
-#         background.drawing=off \
-#         label="$sid" \
-#         click_script="/opt/homebrew/bin/aerospace workspace $sid" \
-#         script="$PLUGIN_DIR/space.sh $sid"
-# done
 
 ##### adding center items #####
 sketchybar --add item front_app center \
