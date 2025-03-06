@@ -14,8 +14,19 @@ echo "Focused workspace: $FOCUSED" >> /tmp/workspace_debug.log
 # Combine workspaces to show (non-empty + focused)
 WORKSPACES_TO_SHOW=($(echo "${NON_EMPTY[@]}"$'\n'"$FOCUSED" | sort -un))
 
-# Get existing space items
-EXISTING=($(sketchybar --query | jq -r '.[] | select(.name | startswith("space.")) | .name'))
+# Get existing space items from SketchyBar
+EXISTING=($(sketchybar --query bar | jq -r '.items[] | select(startswith("space."))'))
+echo "Existing workspaces: ${EXISTING[@]}" >> /tmp/workspace_debug.log
+
+# Remove workspaces that shouldn't be shown
+for existing in "${EXISTING[@]}"; do
+    sid=${existing#space.}
+    # check if workspace is empty and not focused
+    if [[ ! " ${WORKSPACES_TO_SHOW[@]} " =~ " ${sid} " ]]; then
+        echo "Removing workspace $sid" >> /tmp/workspace_debug.log
+        sketchybar --remove "$existing"
+    fi
+done
 
 # Add/update workspaces that should be shown
 for sid in "${WORKSPACES_TO_SHOW[@]}"; do
@@ -35,14 +46,11 @@ for sid in "${WORKSPACES_TO_SHOW[@]}"; do
     fi
 done
 
-# Remove workspaces that shouldn't be shown
-for existing in "${EXISTING[@]}"; do
-    sid=${existing#space.}
-    if [[ ! " ${WORKSPACES_TO_SHOW[@]} " =~ " ${sid} " ]]; then
-        echo "Removing workspace $sid" >> /tmp/workspace_debug.log
-        sketchybar --remove "$existing"
-    fi
-done
+# Add these lines to check workspace states
+echo "Checking workspace $sid:" >> /tmp/workspace_debug.log
+echo "  In NON_EMPTY: ${NON_EMPTY[@]}" >> /tmp/workspace_debug.log
+echo "  Is focused: $FOCUSED" >> /tmp/workspace_debug.log
+echo "  Should remove: $([[ ! " ${NON_EMPTY[@]} " =~ " ${sid} " && "$sid" != "$FOCUSED" ]])" >> /tmp/workspace_debug.log
 
 # Force initial update
 sketchybar --trigger workspace_update
