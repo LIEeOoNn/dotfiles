@@ -1,23 +1,31 @@
 #!/bin/sh
 
-# Load colors
+# Get config directory
+CONFIG_DIR="${CONFIG_DIR:-$HOME/.config/sketchybar}"
 source "$CONFIG_DIR/colors.sh"
 
-# Fetch the currently focused workspace
-FOCUSED_WORKSPACE=$(/opt/homebrew/bin/aerospace list-workspaces --focused)
+# Get workspace ID
+if [ -n "$1" ]; then
+    WORKSPACE_ID="$1"
+else
+    WORKSPACE_ID="${NAME#space.}"
+fi
 
-# Check if the current workspace ($NAME) is the focused workspace
-if [ "$NAME" = "space.$FOCUSED_WORKSPACE" ]; then
-    # Highlight the active workspace
+# Get focused workspace
+FOCUSED=$(/opt/homebrew/bin/aerospace list-workspaces --focused)
+
+# Debug output
+echo "$(date) - Script executed for $NAME (ID: $WORKSPACE_ID)" >> /tmp/space_debug.log
+echo "Focused: $FOCUSED" >> /tmp/space_debug.log
+
+# Highlight if focused
+if [ "$WORKSPACE_ID" = "$FOCUSED" ]; then
     sketchybar --set $NAME \
         background.drawing=on \
         background.color=$ACCENT_COLOR \
-        label.color=$BAR_COLOR \
-        icon.color=$BAR_COLOR
+        label.color=$BAR_COLOR
 else
-    # Normal appearance for inactive workspaces
     sketchybar --set $NAME \
         background.drawing=off \
-        label.color=$ACCENT_COLOR \
-        icon.color=$ACCENT_COLOR
+        label.color=$WHITE
 fi
