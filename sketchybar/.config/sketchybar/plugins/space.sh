@@ -27,9 +27,10 @@ else
         label.color=$TEXT
 fi
 
+
 # replace line 21 to 23 with the following code 
 # if you want to have a line under the foucsed space 
-# instead of a colored background 
+# instead of a colored background
         #background.height=2 \
         #background.y_offset=-13 \
         #background.padding_left=2 \
