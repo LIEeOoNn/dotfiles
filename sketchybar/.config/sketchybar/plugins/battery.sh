@@ -40,4 +40,6 @@ fi
 sketchybar --set "$ITEM_NAME" icon="$ICON" label="${PERCENTAGE}%" \
             icon.color=$COLOR \
             label.color=$COLOR \
-            icon.font="MesloLGS Nerd Font Mono:Bold:35.0"
+            icon.font="MesloLGS Nerd Font Mono:Bold:35.0" \
+            background.color=$COLOR \
+

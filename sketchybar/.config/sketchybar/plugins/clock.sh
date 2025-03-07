@@ -23,4 +23,6 @@ DATETIME=$(date '+%a %d %H:%M')
 sketchybar --set "$NAME" label="$DATETIME" icon= \
             label.color=$MAROON \
             icon.color=$MAROON \
-            icon.font="MesloLGS Nerd Font Mono:Bold:20.0" 
+            icon.font="MesloLGS Nerd Font Mono:Bold:20.0"\
+            background.color=$MAROON \
+            
