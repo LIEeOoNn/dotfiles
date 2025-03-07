@@ -5,15 +5,15 @@ source "$CONFIG_DIR/colors.sh" # Loads all defined colors
 
 PLUGIN_DIR="$CONFIG_DIR/plugins"
 
-sketchybar --bar position=top height=20 blur_radius=20 color=0x40000000 
+sketchybar --bar position=top height=20 blur_radius=20 color=$CRUST 
 
 default=(
   padding_left=2
   padding_right=2
   icon.font="MesloLGS Nerd Font Mono:Bold:15.0"
   label.font="MesloLGS Nerd Font Mono:Bold:15.0"
-  icon.color=$WHITE
-  label.color=$WHITE
+  icon.color=$TEAL
+  label.color=$TEXT
   icon.padding_left=2
   icon.padding_right=2
   label.padding_left=2
@@ -23,21 +23,19 @@ sketchybar --default "${default[@]}"
 
 ##### Adding Left Items #####
 
-# Add Apple Menu Item
-sketchybar --add item apple.logo left \
-           --set apple.logo icon=\
-                           label.drawing=off \
-                           padding_right=15 \
-                           click_script="sketchybar --trigger apple_menu"
-
 # Add Aerospace workspace event handler
 sketchybar --add event aerospace_workspace_change
 
 # Add workspace manager 
 sketchybar --add item workspace_manager left \
            --set workspace_manager \
+           icon.padding_left=0 \
+           icon.padding_right=0 \
+           label.padding_left=0 \
+           label.padding_right=0 \
            script="$PLUGIN_DIR/workspace_manager.sh" \
            --subscribe workspace_manager aerospace_workspace_change
+
 
 ##### adding center items #####
 sketchybar --add item front_app center \
@@ -49,16 +47,19 @@ sketchybar --add item front_app center \
 ##### Adding Right Items #####
 
 sketchybar --add item clock right \
-           --set clock update_freq=10 icon= script="$PLUGIN_DIR/clock.sh" \
-           --add item battery right \
+           --set clock update_freq=20 script="$PLUGIN_DIR/clock.sh" \
+
+sketchybar --add item battery right \
            --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
-           --subscribe battery system_woke power_source_change \
-           --add item volume right \
+           --subscribe battery system_woke power_source_change
+
+sketchybar --add item volume right \
            --set volume script="$PLUGIN_DIR/volume.sh" \
-           --subscribe volume volume_change \
-           --add item network right \
+           --subscribe volume volume_change
+
+sketchybar --add item network right \
            --set network script="$PLUGIN_DIR/network.sh" \
-                         update_freq=10 label.drawing=off \
+                         update_freq=10 label.drawing=off
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update

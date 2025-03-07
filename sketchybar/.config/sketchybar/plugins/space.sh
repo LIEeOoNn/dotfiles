@@ -18,10 +18,10 @@ FOCUSED=$(/opt/homebrew/bin/aerospace list-workspaces --focused)
 if [ "$WORKSPACE_ID" = "$FOCUSED" ]; then
     sketchybar --set $NAME \
         background.drawing=on \
-        background.color=$ACCENT_COLOR \
-        label.color=$BAR_COLOR
+        background.color=$MAUVE \
+        label.color=$CRUST
 else
     sketchybar --set $NAME \
         background.drawing=off \
-        label.color=$WHITE
+        label.color=$TEXT
 fi
