@@ -16,9 +16,49 @@ unset __conda_setup
 
 # default editor to nvim 
 export EDITOR=nvim
+export VISUAL=nvim 
 # MAN opening in nvim 
 export MANPAGER="nvim +Man!"
 
 # https://github.com/junegunn/fzf#setting-up-shell-integration
 # fzf setup for keybinds and completions
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Starts the completion system
+if type brew &>/dev/null; then 
+  FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
+  FPATH="$(brew --prefix)/share/zsh/site-functions:$FPATH"
+fi
+
+
+# bookmarks 
+alias freeprod='nvim ~/Desktop/freestyle_productivity.md'
+alias notes='cd ~/dotfiles/notes'
+
+# general
+alias n='nvim'
+alias ls='ls -F --color=auto'
+alias ll='ls -alFh' # list with links and hidden 
+alias diff='diff -us --color=auto'
+alias grep='grep --color=auto'
+alias cp='cp -R'  # recursive copying 
+alias mkdir='mkdir -vp' # idk if i want verbose yet 
+alias lf='ls | fzf' # fzf in output of ls
+alias rm='rm -Iv'  # confirmation if 3 > files and verbose
+alias ..='cd ..' go back one
+alias tree='tree -lC -L 2' # limit to 2 lvl
+alias c='clear'
+alias update='if [ -f /etc/os-release ]; then sudo pacman -Syu; elif command -v brew &> /dev/null; then brew update && brew upgrade; fi'
+
+
+# git 
+alias gs='git status'
+alias gd='git diff' 
+alias ga='git add' 
+alias gc='git commit'
+alias gpush='git push'
+alias gpull='git pull'
+alias gl="git log --graph --pretty=format:'%C(yellow)%h %C(reset)- %C(cyan)(%ad) %C(reset)- %C(bold blue)%an%C(reset)%n  %C(green)%s%C(reset)' --abbrev-commit --date=short --all"
+alias gb='git branch'
+alias gbs='gb sort=committerdate'
+
