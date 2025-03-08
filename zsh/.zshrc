@@ -17,7 +17,7 @@ unset __conda_setup
 export EDITOR=nvim
 export VISUAL=nvim 
 export MANPAGER="nvim +Man!" # MAN opening in nvim 
-export PATH="$HOME/.tmuxifier/bin:$PATH" # setup tmuxifier
+export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH" # setup tmuxifier
 eval "$(tmuxifier init -)"
 
 # https://github.com/junegunn/fzf#setting-up-shell-integration
