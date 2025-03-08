@@ -14,11 +14,11 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# default editor to nvim 
 export EDITOR=nvim
 export VISUAL=nvim 
-# MAN opening in nvim 
-export MANPAGER="nvim +Man!"
+export MANPAGER="nvim +Man!" # MAN opening in nvim 
+export PATH="$HOME/.tmuxifier/bin:$PATH" # setup tmuxifier
+eval "$(tmuxifier init -)"
 
 # https://github.com/junegunn/fzf#setting-up-shell-integration
 # fzf setup for keybinds and completions
@@ -29,7 +29,6 @@ if type brew &>/dev/null; then
   FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
   FPATH="$(brew --prefix)/share/zsh/site-functions:$FPATH"
 fi
-
 
 # bookmarks 
 alias freeprod='nvim ~/Desktop/freestyle_productivity.md'
@@ -43,7 +42,7 @@ alias diff='diff -us --color=auto'
 alias grep='grep --color=auto'
 alias cp='cp -R'  # recursive copying 
 alias mkdir='mkdir -vp' # idk if i want verbose yet 
-alias lf='ls | fzf' # fzf in output of ls
+alias lf='ls -Fa | fzf' # fzf in output of ls
 alias rm='rm -Iv'  # confirmation if 3 > files and verbose
 alias ..='cd ..' go back one
 alias tree='tree -lC -L 2' # limit to 2 lvl
