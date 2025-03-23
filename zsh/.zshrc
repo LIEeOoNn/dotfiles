@@ -16,6 +16,9 @@ unset __conda_setup
 
 # use the r from the r env 
 export PATH="$HOME/miniconda3/envs/r-env/bin:$PATH"
+# use .NET for vscode 
+export DOTNET_ROOT="/opt/homebrew"
+export PATH="$DOTNET_ROOT/bin:$PATH"
 
 export EDITOR=nvim
 export VISUAL=nvim 
@@ -64,5 +67,3 @@ alias gl="git log --graph --pretty=format:'%C(yellow)%h %C(reset)- %C(cyan)(%ad)
 alias gb='git branch'
 alias gbs='gb sort=committerdate'
 
-export DOTNET_ROOT="/opt/homebrew"
-export PATH="$DOTNET_ROOT/bin:$PATH"

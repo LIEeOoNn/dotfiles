@@ -11,5 +11,6 @@
     "editor.minimap.enabled": false,
     "workbench.iconTheme": "vscode-icons",
     "r.rpath.mac": "/Users/leon/miniconda3/envs/r_env/bin/R",
+     "r.rterm.mac": "/Users/leon/miniconda3/envs/r_env/bin/R",
     "explorer.confirmDelete": false,
 }
