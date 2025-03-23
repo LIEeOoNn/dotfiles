@@ -9,5 +9,5 @@
     "security.workspace.trust.untrustedFiles": "open",
     "files.autoSave": "afterDelay",
     "editor.minimap.enabled": false,
-    "workbench.iconTheme": "file-icons"
+    "workbench.iconTheme": "file-icons",
 }

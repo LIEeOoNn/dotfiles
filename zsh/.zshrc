@@ -60,4 +60,3 @@ alias gpull='git pull'
 alias gl="git log --graph --pretty=format:'%C(yellow)%h %C(reset)- %C(cyan)(%ad) %C(reset)- %C(bold blue)%an%C(reset)%n  %C(green)%s%C(reset)' --abbrev-commit --date=short --all"
 alias gb='git branch'
 alias gbs='gb sort=committerdate'
-
