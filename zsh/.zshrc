@@ -14,6 +14,9 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# use the r from the r env 
+export PATH="$HOME/miniconda3/envs/r-env/bin:$PATH"
+
 export EDITOR=nvim
 export VISUAL=nvim 
 export MANPAGER="nvim +Man!" # MAN opening in nvim 
@@ -60,3 +63,6 @@ alias gpull='git pull'
 alias gl="git log --graph --pretty=format:'%C(yellow)%h %C(reset)- %C(cyan)(%ad) %C(reset)- %C(bold blue)%an%C(reset)%n  %C(green)%s%C(reset)' --abbrev-commit --date=short --all"
 alias gb='git branch'
 alias gbs='gb sort=committerdate'
+
+export DOTNET_ROOT="/opt/homebrew"
+export PATH="$DOTNET_ROOT/bin:$PATH"
