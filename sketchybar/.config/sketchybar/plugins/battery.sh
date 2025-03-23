@@ -23,9 +23,12 @@ case "${PERCENTAGE}" in
   ;;
   *) ICON=""
 esac
+# setting the font for icons abouve
+FONT="MesloLGS Nerd Font Mono:Bold:35.0" 
 
 if [[ "$CHARGING" != "" ]]; then
   ICON=""
+  FONT="MesloLGS Nerd Font Mono:Bold:20.0"
 fi
 
 # Set colors based on percentage
@@ -40,6 +43,5 @@ fi
 sketchybar --set "$ITEM_NAME" icon="$ICON" label="${PERCENTAGE}%" \
             icon.color=$COLOR \
             label.color=$COLOR \
-            icon.font="MesloLGS Nerd Font Mono:Bold:35.0" \
+            icon.font="$FONT" \
             background.color=$COLOR \
-
