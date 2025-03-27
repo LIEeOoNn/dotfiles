@@ -1,0 +1,31 @@
+;; kanata config
+
+;;  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+;;  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+;;  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+;;  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+;;  lctl lmet lalt           spc            ralt rmet rctl
+
+;; define keys that will be modified (all keys still processed) 
+(defsrc 
+  caps
+  rsft
+)
+
+;; remapping between physical keys and functionality
+(defalias
+  ;; define hypr as all four modifiers 
+  hypr (multi lctrl lalt lshft lmet) 
+    
+  ;; tap: esc, hold: hyper-key
+  esc_hypr (tap-hold 100 100 esc @hypr) 
+  
+  ;; tap: rsft, hold: caps-lock
+  rsft_caps (tap-hold 100 100 rsft caps)
+)
+
+;; default/base layer modifications always active 
+(deflayer default 
+  @esc_hypr
+  @rsft_caps
+)
