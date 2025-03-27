@@ -21,7 +21,7 @@
   esc_hypr (tap-hold 100 100 esc @hypr) 
   
   ;; tap: rsft, hold: caps-lock
-  rsft_caps (tap-hold 100 100 rsft caps)
+  rsft_caps (tap-hold 100 250 rsft caps)
 )
 
 ;; default/base layer modifications always active 

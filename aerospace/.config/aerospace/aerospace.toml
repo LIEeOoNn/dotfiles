@@ -11,6 +11,7 @@ after-login-command = []
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
   'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0',
+  'exec-and-forget sudo $HOME/.cargo/bin/kanata --cfg ~/.config/kanata/kanata.kbd',
   'exec-and-forget sketchybar'
 ]
 
@@ -88,7 +89,7 @@ outer.right = 5
 #                   keypadMinus, keypadMultiply, keypadPlus
 # - Arrows.         left, down, up, right
 
-# All possible modifiers: alt, alt, ctrl, shift
+# All possible modifiers: cmd, alt, ctrl, shift
 
 # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
 
@@ -109,22 +110,22 @@ alt-e = "exec-and-forget osascript -e 'tell application \"Finder\" to activate'"
 cmd-shift-l = "exec-and-forget osascript -e 'tell application \"System Events\" to start current screen saver'"
 
 # Toggle 'aerospace.toml'
-alt-v = 'layout floating tiling'
+ctrl-alt-shift-cmd-v = 'layout floating tiling'
 
 # switch workspace 
-alt-tab = 'workspace-back-and-forth'
+ctrl-alt-shift-cmd-tab = 'workspace-back-and-forth'
 
-# Move focus with alt + arrow keys
-alt-left = 'focus left'
-alt-right = 'focus right'
-alt-up = 'focus up'
-alt-down = 'focus down'
+# Move focus with ctrl-alt-shift-cmd + arrow keys
+ctrl-alt-shift-cmd-left = 'focus left'
+ctrl-alt-shift-cmd-right = 'focus right'
+ctrl-alt-shift-cmd-up = 'focus up'
+ctrl-alt-shift-cmd-down = 'focus down'
 
-# Move focus with alt + vim keys (h, j, k, l)
-alt-h = 'focus left'
-alt-l = 'focus right'
-alt-k = 'focus up'
-alt-j = 'focus down'
+# Move focus with ctrl-alt-shift-cmd + vim keys (h, j, k, l)
+ctrl-alt-shift-cmd-h = 'focus left'
+ctrl-alt-shift-cmd-l = 'focus right'
+ctrl-alt-shift-cmd-k = 'focus up'
+ctrl-alt-shift-cmd-j = 'focus down'
 
 # joining nodes together 
 alt-shift-h = 'join-with left'
@@ -132,17 +133,17 @@ alt-shift-j = 'join-with down'
 alt-shift-k = 'join-with up'
 alt-shift-l = 'join-with right'
 
-# Switch workspaces with alt + [0-9]
-alt-1 = 'workspace 1'
-alt-2 = 'workspace 2'
-alt-3 = 'workspace 3'
-alt-4 = 'workspace 4'
-alt-5 = 'workspace 5'
-alt-6 = 'workspace 6'
-alt-7 = 'workspace 7'
-alt-8 = 'workspace 8'
-alt-9 = 'workspace 9'
-alt-0 = 'workspace 10'
+# Switch workspaces with ctrl-alt-shift-cmd + [0-9]
+ctrl-alt-shift-cmd-1 = 'workspace 1'
+ctrl-alt-shift-cmd-2 = 'workspace 2'
+ctrl-alt-shift-cmd-3 = 'workspace 3'
+ctrl-alt-shift-cmd-4 = 'workspace 4'
+ctrl-alt-shift-cmd-5 = 'workspace 5'
+ctrl-alt-shift-cmd-6 = 'workspace 6'
+ctrl-alt-shift-cmd-7 = 'workspace 7'
+ctrl-alt-shift-cmd-8 = 'workspace 8'
+ctrl-alt-shift-cmd-9 = 'workspace 9'
+ctrl-alt-shift-cmd-0 = 'workspace 10'
 
 # Move active window to a workspace with alt + shift + [0-9]
 alt-shift-1 = 'move-node-to-workspace 1'
@@ -157,21 +158,21 @@ alt-shift-9 = 'move-node-to-workspace 9'
 alt-shift-0 = 'move-node-to-workspace 10'
 
 # Special workspace (scratchpad)
-alt-s = 'workspace magic'
+ctrl-alt-shift-cmd-s = 'workspace magic'
 alt-shift-s = 'move-node-to-workspace magic'
 
 cmd-f = 'macos-native-fullscreen'
 cmd-m = 'macos-native-minimize'
 
-# Move/resize windows with alt + mouse
-# alt-mouse_left = 'move-window'
-# alt-mouse_right = 'resize-window'
+# Move/resize windows with ctrl-alt-shift-cmd + mouse
+# ctrl-alt-shift-cmd-mouse_left = 'move-window'
+# ctrl-alt-shift-cmd-mouse_right = 'resize-window'
 # simple resize
-alt-minus = 'resize smart -50'
+ctrl-alt-shift-cmd-minus = 'resize smart -50'
 alt-semicolon = 'resize smart +50'
 
 # Enter resize mode 
-alt-r = 'mode resize'
+ctrl-alt-shift-cmd-r = 'mode resize'
 [mode.resize.binding]
 esc = 'mode main' 
   h = 'resize width +50' 
@@ -179,11 +180,11 @@ esc = 'mode main'
   k = 'resize height -50'
   l = 'resize width -50'
 
-
 # reload conifg 
 alt-shift-r = 'reload-config'
+alt-shift-f = 'flatten-workspace-tree'
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-alt-p = 'mode service'
+ctrl-alt-shift-cmd-p = 'mode service'
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
