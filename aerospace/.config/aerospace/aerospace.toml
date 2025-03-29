@@ -94,26 +94,30 @@ outer.right = 5
 # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
 
 # Map Hyprland keybindings to AeroSpace
-# Terminal
-alt-q = "exec-and-forget osascript -e 'tell application \"kitty\" to activate'"
 
 # Kill active window
-alt-c = 'close'
+alt-c = 'close --quit-if-last-wondow'
 
 # Exit (close all windows and quit AeroSpace)
 # shift-alt-m = 'pkill aerospace'
 
-# File manager (Finder)
-alt-e = "exec-and-forget osascript -e 'tell application \"Finder\" to activate'"
-
 # Lock screen 
-cmd-shift-l = "exec-and-forget osascript -e 'tell application \"System Events\" to start current screen saver'"
+cmd-shift-l = "exec-and-forget pmset displaysleepnow"
 
-# Toggle 'aerospace.toml'
+# Terminal
+ctrl-alt-shift-cmd-q = "exec-and-forget open -a /opt/homebrew/bin/kitty" 
+# File manager (Finder)
+ctrl-alt-shift-cmd-e = "exec-and-forget open $HOME"
+
+# Toggle between floating or tiling
 ctrl-alt-shift-cmd-v = 'layout floating tiling'
 
 # switch workspace 
 ctrl-alt-shift-cmd-tab = 'workspace-back-and-forth'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#layout
+# alt-slash = 'layout tiles horizontal vertical'
+# alt-comma = 'layout accordion horizontal vertical'
 
 # Move focus with ctrl-alt-shift-cmd + arrow keys
 ctrl-alt-shift-cmd-left = 'focus left'
@@ -161,15 +165,20 @@ alt-shift-0 = 'move-node-to-workspace 10'
 ctrl-alt-shift-cmd-s = 'workspace magic'
 alt-shift-s = 'move-node-to-workspace magic'
 
-cmd-f = 'macos-native-fullscreen'
+shift-cmd-f = 'macos-native-fullscreen'
 cmd-m = 'macos-native-minimize'
 
 # Move/resize windows with ctrl-alt-shift-cmd + mouse
 # ctrl-alt-shift-cmd-mouse_left = 'move-window'
 # ctrl-alt-shift-cmd-mouse_right = 'resize-window'
+
 # simple resize
 ctrl-alt-shift-cmd-minus = 'resize smart -50'
 alt-semicolon = 'resize smart +50'
+
+# reload conifg 
+alt-shift-r = 'reload-config'
+alt-shift-f = 'flatten-workspace-tree'
 
 # Enter resize mode 
 ctrl-alt-shift-cmd-r = 'mode resize'
@@ -180,9 +189,6 @@ esc = 'mode main'
   k = 'resize height -50'
   l = 'resize width -50'
 
-# reload conifg 
-alt-shift-r = 'reload-config'
-alt-shift-f = 'flatten-workspace-tree'
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 ctrl-alt-shift-cmd-p = 'mode service'
 # 'service' binding mode declaration.
@@ -195,3 +201,9 @@ backspace = ['close-all-windows-but-current', 'mode main']
 
 # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
 #s = ['layout sticky tiling', 'mode main']
+
+[[on-window-detected]]
+# specifiy an app id and do something 
+# $ aerospace list-apps
+if.app-id = 'com.apple.finder'
+run = ['layout floating']
