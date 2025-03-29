@@ -6,8 +6,10 @@
 ;;  lsft z    x    c    v    b    n    m    ,    .    /    rsft
 ;;  lctl lmet lalt           spc            ralt rmet rctl
 
-;; define keys that will be modified (all keys still processed) 
+
+;; define keys in order, that will be modified (all keys still processed) 
 (defsrc 
+  f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12
   caps
   rsft
 )
@@ -21,11 +23,12 @@
   esc_hypr (tap-hold 100 100 esc @hypr) 
   
   ;; tap: rsft, hold: caps-lock
-  rsft_caps (tap-hold 100 250 rsft caps)
+  rsft_caps (tap-hold 100 100 caps rsft)
 )
 
 ;; default/base layer modifications always active 
 (deflayer default 
+  brdn  brup  _  _  _  _  prev  pp  next  mute  vold  volu
   @esc_hypr
   @rsft_caps
 )
