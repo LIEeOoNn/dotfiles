@@ -96,7 +96,7 @@ outer.right = 5
 # Map Hyprland keybindings to AeroSpace
 
 # Kill active window
-alt-c = 'close --quit-if-last-wondow'
+alt-c = 'close --quit-if-last-window'
 
 # Exit (close all windows and quit AeroSpace)
 # shift-alt-m = 'pkill aerospace'
