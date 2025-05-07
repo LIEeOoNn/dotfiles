@@ -18,7 +18,7 @@ after-startup-command = [
 # Notify Sketchybar about workspace change
 exec-on-workspace-change = [
     '/bin/bash', '-c',
-    'sketchybar --trigger aerospace_workspace_change && sketchybar --trigger workspace_update'
+    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE && sketchybar --trigger workspace_update'
 ]
 # Start AeroSpace at login
 start-at-login = false
@@ -72,6 +72,12 @@ outer.bottom = 5
 outer.top = 35
 outer.right = 5
 
+# Assign certain workspaces to
+# See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
+[workspace-to-monitor-force-assignment]
+10 = 'secondary'
+# i only force one to be assigned so that i can freely move others around 
+
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # 'main' binding mode must be always presented
@@ -114,6 +120,8 @@ ctrl-alt-shift-cmd-v = 'layout floating tiling'
 
 # switch workspace 
 ctrl-alt-shift-cmd-tab = 'workspace-back-and-forth'
+# switch monitors    inspired by a back-and-forth
+ctrl-alt-shift-cmd-m = 'focus-monitor --wrap-around next'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 # alt-slash = 'layout tiles horizontal vertical'
@@ -148,6 +156,7 @@ ctrl-alt-shift-cmd-7 = 'workspace 7'
 ctrl-alt-shift-cmd-8 = 'workspace 8'
 ctrl-alt-shift-cmd-9 = 'workspace 9'
 ctrl-alt-shift-cmd-0 = 'workspace 10'
+ctrl-alt-shift-cmd-s = 'workspace magic'
 
 # Move active window to a workspace with alt + shift + [0-9]
 cmd-shift-1 = 'move-node-to-workspace 1'
@@ -160,10 +169,13 @@ cmd-shift-7 = 'move-node-to-workspace 7'
 cmd-shift-8 = 'move-node-to-workspace 8'
 cmd-shift-9 = 'move-node-to-workspace 9'
 cmd-shift-0 = 'move-node-to-workspace 10'
-
-# Special workspace (scratchpad)
-ctrl-alt-shift-cmd-s = 'workspace magic'
 cmd-shift-s = 'move-node-to-workspace magic'
+
+# Move active ws to monitor 
+ctrl-alt-shift-cmd-p = 'move-workspace-to-monitor --wrap-around next'
+# i wont do keybindings for 'move-node-to-monitor' since i 
+# can achieve the same using 'move-node-to-ws' where ws will 
+# be the ws on the other monitor 
 
 shift-cmd-f = 'macos-native-fullscreen'
 cmd-m = 'macos-native-minimize'
@@ -174,7 +186,7 @@ cmd-m = 'macos-native-minimize'
 
 # simple resize
 ctrl-alt-shift-cmd-minus = 'resize smart -50'
-alt-semicolon = 'resize smart +50'
+ctrl-alt-shift-cmd-semicolon = 'resize smart +50'
 
 # reload conifg 
 alt-shift-r = 'reload-config'
@@ -190,7 +202,7 @@ esc = 'mode main'
   l = 'resize width -50'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-ctrl-alt-shift-cmd-p = 'mode service'
+ctrl-alt-shift-cmd-period = 'mode service'
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
