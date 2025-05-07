@@ -13,6 +13,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 vim.opt.clipboard = "unnamedplus"
 
+vim.api.nvim_create_user_command('Wdate', function()
+  vim.cmd([[r !date +"\%H:\%Mh \%d.\%m.\%Y"]])
+end, {})
+
 local opts = {}
 
 require("vim-options")
