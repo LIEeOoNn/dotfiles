@@ -39,6 +39,8 @@ fi
 # bookmarks 
 alias freeprod='nvim ~/Desktop/freestyle_productivity.md'
 alias notes='cd ~/dotfiles/notes'
+alias thesis='cd ~/repos/thesis'
+alias work='cd ~/repos/work'
 
 # general
 alias n='nvim'
