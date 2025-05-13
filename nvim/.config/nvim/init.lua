@@ -11,7 +11,12 @@ if not vim.loop.fs_stat(lazypath) then
 	})
 end
 vim.opt.rtp:prepend(lazypath)
+-- clipboard into nvim and out of vim 
 vim.opt.clipboard = "unnamedplus"
+-- text wrapping 
+vim.opt.wrap = true
+vim.opt.list = false -- stops displaying whitespaces as text 
+vim.opt.linebreak = true -- wraps text at the end of a word 
 
 vim.api.nvim_create_user_command('Wdate', function()
   vim.cmd([[r !date +"\%H:\%Mh \%d.\%m.\%Y"]])
