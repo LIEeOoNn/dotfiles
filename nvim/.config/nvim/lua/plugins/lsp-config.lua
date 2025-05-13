@@ -33,7 +33,10 @@ return {
 			-- declare lsp in the following way again
 			lspconfig.lua_ls.setup({capabilities = capabilities})
 			lspconfig.clangd.setup({capabilities = capabilities})
-			lspconfig.basedpyright.setup({capabilities = capabilities})
+			lspconfig.basedpyright.setup({
+        capabilities = capabilities,
+        filetypes = {"python"},
+      })
 
 			--  This function gets run when an LSP connects to a particular buffer.
 			--local on_attach = function(_, bufnr)
