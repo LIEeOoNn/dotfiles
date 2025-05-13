@@ -1,20 +1,35 @@
 return {
-	"nvimtools/none-ls.nvim",
-	config = function()
-		local null_ls = require("null-ls")
+  {
+    "nvimtools/none-ls.nvim",
+    dependencies = {
+      "jay-babu/mason-null-ls.nvim",
+      "williamboman/mason.nvim",
+    },
+    config = function()
+      local null_ls = require("null-ls")
 
-		null_ls.setup({
-			-- declare all the formater, linter and
-			-- completions we want to have
-			-- install using :Mason
-			sources = {
-				null_ls.builtins.formatting.stylua,
-				null_ls.builtins.formatting.black,
-				null_ls.builtins.completion.spell,
-				--require("none-ls.diagnostics.eslint"), -- requires none-ls-extras.nvim
-			},
-		})
+      require("mason-null-ls").setup({
+        ensure_installed = {
+          "stylua",
+          "black",
+          "ruff",
+        },
+        automatic_installation = true,
+      })
 
-		vim.keymap.set("n", "F", vim.lsp.buf.format, { desc = "Format file" })
-	end,
+      null_ls.setup({
+        sources = {
+          -- lua stuff 
+          null_ls.builtins.formatting.stylua,
+          -- python stuff 
+          null_ls.builtins.formatting.black,
+          -- null_ls.builtins.diagnostics.ruff,
+          -- generall 
+          null_ls.builtins.completion.spell,
+        },
+      })
+
+      vim.keymap.set("n", "F", vim.lsp.buf.format, { desc = "Format file" })
+    end,
+  },
 }
