@@ -8,17 +8,25 @@ return {
       "saadparwaiz1/cmp_luasnip",
       "rafamadriz/friendly-snippets",
     },
+    config = function()
+      require("luasnip.loaders.from_vscode").lazy_load()
+      -- set LuaSnip transformation settings 
+      require("luasnip").config.set_config({
+        enable_jsregexp= true,
+      })
+    end,
   },
   {
     "hrsh7th/nvim-cmp",
     config = function()
       local cmp = require("cmp")
+      local luasnip = require("luasnip")
       require("luasnip.loaders.from_vscode").lazy_load()
 
       cmp.setup({
         snippet = {
           expand = function(args)
-            require("luasnip").lsp_expand(args.body)
+            luasnip.lsp_expand(args.body)
           end,
         },
         window = {
