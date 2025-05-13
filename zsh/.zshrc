@@ -69,3 +69,5 @@ alias gl="git log --graph --pretty=format:'%C(yellow)%h %C(reset)- %C(cyan)(%ad)
 alias gb='git branch'
 alias gbs='gb sort=committerdate'
 
+# uni pool remote access 
+alias uni-ssh='TERM=xterm-256color ssh peplaul0@login-stud.informatik.uni-bonn.de'
