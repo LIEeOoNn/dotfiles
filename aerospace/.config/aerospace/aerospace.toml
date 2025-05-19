@@ -190,7 +190,7 @@ ctrl-alt-shift-cmd-semicolon = 'resize smart +50'
 
 # reload conifg 
 alt-shift-r = 'reload-config'
-alt-shift-f = 'flatten-workspace-tree'
+ctrl-alt-shift-cmd-f = 'flatten-workspace-tree'
 
 # Enter resize mode 
 ctrl-alt-shift-cmd-r = 'mode resize'
