@@ -36,7 +36,10 @@ if type brew &>/dev/null; then
   FPATH="$(brew --prefix)/share/zsh/site-functions:$FPATH"
 fi
 
-# bookmarks 
+# bookmarks
+books() {
+  rclone bisync dropbox:/books ~/Books && cd ~/Books
+}
 alias freeprod='nvim ~/Desktop/freestyle_productivity.md'
 alias notes='cd ~/dotfiles/notes'
 alias thesis='cd ~/repos/thesis'
