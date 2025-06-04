@@ -33,7 +33,7 @@
 | `Ctrl+B` then `N` or `P`         | Next / Previous window                     |
 | `Ctrl+B` then `0`–`9`            | Switch to window by number                 |
 | `Ctrl+B` then Arrow Key          | Move between panes                         |
-
+| `Ctrl+B` then vim Keys           | Move between panes (tmuxifier setup)       |
 ### ❌ Close
 
 | Command                          | Description                                |
@@ -47,7 +47,7 @@
 | Command                          | Description                                |
 |----------------------------------|--------------------------------------------|
 | `Ctrl+B` then `:`                | Enter command mode                         |
-| Type `resize-pane -D` / `-U` / `-L` / `-R` | Resize down/up/left/right            |
+| Type `resize-pane -D` / `-U` / `-L` / `-R` | Resize down/up/left/right        |
 
 ## 📦 Detach & Reattach
 
