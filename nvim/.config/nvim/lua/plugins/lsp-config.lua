@@ -15,11 +15,13 @@ return {
 					"lua_ls",
 					"clangd",
 					"basedpyright",
+          "omnisharp",
 					--"rust_analyzer",
 					--"gopls",
 					--"texlab
 				},
-        automatic_enable = true,
+        automatic_enable = false, -- false to not start 2 lsp on default 
+        -- and another custom one like below
 			})
 		end,
 	},
@@ -36,6 +38,14 @@ return {
 			lspconfig.basedpyright.setup({
         capabilities = capabilities,
         filetypes = {"python"},
+      })
+      -- c# completions are handled by omnisharp lsp, not none-ls/null-ls 
+      lspconfig.omnisharp.setup({
+        capabilities = capabilities,
+        cmd = { "omnisharp" },
+        enable_roslyn_analyzers = true,
+        organize_imports_on_format = true,
+        enable_import_completion = true,
       })
 
 			--  This function gets run when an LSP connects to a particular buffer.

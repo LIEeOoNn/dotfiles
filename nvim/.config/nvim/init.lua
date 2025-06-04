@@ -18,6 +18,9 @@ vim.opt.wrap = true
 vim.opt.list = false -- stops displaying whitespaces as text 
 vim.opt.linebreak = true -- wraps text at the end of a word 
 
+-- path for c# to work 
+vim.env.DOTNET_ROOT = "/opt/homebrew/opt/dotnet/libexec"
+
 vim.api.nvim_create_user_command('Wdate', function()
   vim.cmd([[r !date +"\%H:\%Mh \%d.\%m.\%Y"]])
 end, {})
