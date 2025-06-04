@@ -17,8 +17,7 @@ unset __conda_setup
 # use the r from the r env 
 export PATH="$HOME/miniconda3/envs/r-env/bin:$PATH"
 # use .NET for vscode 
-export DOTNET_ROOT="/opt/homebrew"
-export PATH="$DOTNET_ROOT/bin:$PATH"
+export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
 
 export EDITOR=nvim
 export VISUAL=nvim 
@@ -75,3 +74,4 @@ alias gbs='gb sort=committerdate'
 
 # uni pool remote access 
 alias uni-ssh='TERM=xterm-256color ssh peplaul0@login-stud.informatik.uni-bonn.de'
+alias muntanitz='TERM=xterm-256color ssh student-peplau@muntanitz.informatik.uni-bonn.de'
