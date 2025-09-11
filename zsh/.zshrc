@@ -1,4 +1,5 @@
-
+export DOTNET_ROOT="/usr/local/share/dotnet/dotnet"
+export PATH=$DOTNET_ROOT:$PATH
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/leon/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -16,14 +17,12 @@ unset __conda_setup
 
 # use the r from the r env 
 export PATH="$HOME/miniconda3/envs/r-env/bin:$PATH"
-# use .NET for vscode 
-export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
-
 export EDITOR=nvim
 export VISUAL=nvim 
 export MANPAGER="nvim +Man!" # MAN opening in nvim 
 export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH" # setup tmuxifier
 eval "$(tmuxifier init -)"
+export PATH="/opt/VirtualGL/bin:$PATH"
 
 # https://github.com/junegunn/fzf#setting-up-shell-integration
 # fzf setup for keybinds and completions
@@ -45,6 +44,7 @@ alias thesis='cd ~/repos/thesis'
 alias work='cd ~/repos/work'
 
 # general
+alias e='exit'
 alias n='nvim'
 alias ls='ls -F --color=auto'
 alias ll='ls -alFh' # list with links and hidden 
@@ -60,7 +60,6 @@ alias c='clear'
 alias update='if [ -f /etc/os-release ]; then sudo pacman -Syu; elif command -v brew &> /dev/null; then brew update && brew upgrade; fi'
 alias space-waste='du -ah ~ | sort -rh | head -n 20'
 
-
 # git 
 alias gs='git status'
 alias gd='git diff' 
@@ -75,3 +74,14 @@ alias gbs='gb sort=committerdate'
 # uni pool remote access 
 alias uni-ssh='TERM=xterm-256color ssh peplaul0@login-stud.informatik.uni-bonn.de'
 alias muntanitz='TERM=xterm-256color ssh student-peplau@muntanitz.informatik.uni-bonn.de'
+
+# functions 
+jwtcurl() {
+  local token=$1
+  local url=$2
+  if [[ -z "$token" || -z "$url" ]]; then
+    echo "Usage: jwtcurl <token> <url>"
+    return 1
+  fi
+  curl -i -H "Authorization: Bearer $token" "$url"
+}
