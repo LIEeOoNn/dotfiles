@@ -13,4 +13,9 @@
     "r.rpath.mac": "/Users/leon/miniconda3/envs/r_env/bin/R",
      "r.rterm.mac": "/Users/leon/miniconda3/envs/r_env/bin/R",
     "explorer.confirmDelete": false,
+    "python.analysis.typeCheckingMode": "standard",
+    "workbench.colorTheme": "Visual Studio 2017 Dark - C++",
+    "explorer.confirmDragAndDrop": false,
+    "vsicons.dontShowNewVersionMessage": true,
+    "github.copilot.nextEditSuggestions.enabled": true,
 }
