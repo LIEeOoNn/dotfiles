@@ -34,13 +34,27 @@ vim.o.smartcase = true
 vim.wo.signcolumn = 'yes'
 
 -- Decrease update time
--- vim.o.updatetime = 50
--- vim.o.timeout = true
--- vim.o.timeoutlen = 300
+vim.o.updatetime = 300
+vim.o.timeoutlen = 500
+vim.o.ttimeoutlen = 10
 
 -- vim.opt.scrolloff = 8
 -- Set completeopt to have a better completion experience
--- vim.o.completeopt = 'menuone,noselect'
+vim.opt.wildignore:append { '.DS_Store' }
+vim.o.completeopt = 'menuone,noselect,noinsert'
+vim.o.pumheight = 15
+
+-- Diff mode settings.
+-- Setting the context to a very large number disables folding.
+vim.opt.diffopt:append 'vertical,context:99'
+
+vim.opt.shortmess:append {
+    w = true,
+    s = true,
+}
+
+-- Disable cursor blinking in terminal mode.
+vim.o.guicursor = 'n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,t:block-TermCursor'
 
 -- NOTE: You should make sure your terminal supports this
 -- vim.o.termguicolors = true
