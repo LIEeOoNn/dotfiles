@@ -58,7 +58,8 @@ alias ..='cd ..' go back one
 alias tree='tree -lC -L 2' # limit to 2 lvl
 alias c='clear'
 alias update='if [ -f /etc/os-release ]; then sudo pacman -Syu; elif command -v brew &> /dev/null; then brew update && brew upgrade; fi'
-alias space-waste='du -ah ~ | sort -rh | head -n 20'
+alias space-waste='du -ah ~ 2>/dev/null | sort -rh | head -n 20'
+alias aero='nvim ~/.config/aerospace/aerospace.toml'
 
 # git 
 alias gs='git status'
