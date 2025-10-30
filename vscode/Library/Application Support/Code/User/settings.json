@@ -18,4 +18,5 @@
     "explorer.confirmDragAndDrop": false,
     "vsicons.dontShowNewVersionMessage": true,
     "github.copilot.nextEditSuggestions.enabled": true,
+    "markdown.extension.preview.autoShowPreviewToSide": true,
 }
