@@ -1,5 +1,7 @@
 # Notes on system stability and tools
 
+    https://www.youtube.com/shorts/CEneKip8Eug
+
 ## Todo for documentation
 1. config bat, fzf
 2. get z for cd
