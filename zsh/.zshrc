@@ -1,5 +1,8 @@
-export DOTNET_ROOT="/usr/local/share/dotnet/dotnet"
-export PATH=$DOTNET_ROOT:$PATH
+# .NET SDK root
+export DOTNET_ROOT="/usr/local/share/dotnet"
+# dotnet + global tools under the PATH
+export PATH="$PATH:$DOTNET_ROOT:$HOME/.dotnet/tools"
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/leon/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -42,6 +45,7 @@ alias freeprod='nvim ~/Desktop/freestyle_productivity.md'
 alias notes='cd ~/dotfiles/notes'
 alias thesis='cd ~/repos/thesis'
 alias work='cd ~/repos/work'
+alias uni='cd ~/OneDrive\ -\ uni-bonn.de/Informatik/Master/CS-SS26'
 
 # general
 alias e='exit'
