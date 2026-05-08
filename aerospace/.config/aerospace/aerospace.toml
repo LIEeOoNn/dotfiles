@@ -102,7 +102,7 @@ outer.right = 5
 # Map Hyprland keybindings to AeroSpace
 
 # Kill active window
-alt-c = 'close'
+#alt-c = 'close' # disables since i use 'cmd + w' mac native
 
 # Exit (close all windows and quit AeroSpace)
 # shift-alt-m = 'pkill aerospace'
@@ -112,8 +112,12 @@ alt-shift-l = "exec-and-forget pmset displaysleepnow"
 
 # Terminal
 ctrl-alt-shift-cmd-q = "exec-and-forget open -a /opt/homebrew/bin/kitty" 
+
 # File manager (Finder)
 ctrl-alt-shift-cmd-e = "exec-and-forget open $HOME"
+
+# Reload sketchybar 
+alt-shift-s = "exec-and-forget sketchybar --reload"
 
 # Toggle between floating or tiling
 ctrl-alt-shift-cmd-v = 'layout floating tiling'
@@ -178,7 +182,7 @@ ctrl-alt-shift-cmd-p = 'move-workspace-to-monitor --wrap-around next'
 # be the ws on the other monitor 
 
 shift-cmd-f = 'macos-native-fullscreen'
-cmd-m = 'macos-native-minimize'
+cmd-m = 'macos-native-minimize' 
 
 # Move/resize windows with ctrl-alt-shift-cmd + mouse
 # ctrl-alt-shift-cmd-mouse_left = 'move-window'
