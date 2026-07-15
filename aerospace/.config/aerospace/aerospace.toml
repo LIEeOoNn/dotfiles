@@ -111,7 +111,7 @@ outer.right = 5
 alt-shift-l = "exec-and-forget pmset displaysleepnow"
 
 # Terminal
-ctrl-alt-shift-cmd-q = 'exec-and-forget /Applications/kitty.app/Contents/MacOS/kitty --single-instance --directory "$HOME"'
+ctrl-alt-shift-cmd-q = 'exec-and-forget /Applications/kitty.app/Contents/MacOS/kitty --single-instance --instance-group=aerospace --directory "$HOME"'
 
 # File manager (Finder)
 ctrl-alt-shift-cmd-e = "exec-and-forget open $HOME"
@@ -148,6 +148,8 @@ cmd-shift-h = 'join-with left'
 cmd-shift-j = 'join-with down'
 cmd-shift-k = 'join-with up'
 cmd-shift-l = 'join-with right'
+# swap nodes 
+
 
 # Switch workspaces with ctrl-alt-shift-cmd + [0-9]
 ctrl-alt-shift-cmd-1 = 'workspace 1'
@@ -161,6 +163,7 @@ ctrl-alt-shift-cmd-8 = 'workspace 8'
 ctrl-alt-shift-cmd-9 = 'workspace 9'
 ctrl-alt-shift-cmd-0 = 'workspace 10'
 ctrl-alt-shift-cmd-s = 'workspace magic'
+ctrl-alt-shift-cmd-c = ['workspace calendar', 'exec-and-forget open -a Calendar']
 
 # Move active window to a workspace with alt + shift + [0-9]
 shift-cmd-1 = 'move-node-to-workspace 1'
@@ -174,6 +177,7 @@ shift-cmd-8 = 'move-node-to-workspace 8'
 shift-cmd-9 = 'move-node-to-workspace 9'
 shift-cmd-0 = 'move-node-to-workspace 10'
 shift-cmd-s = 'move-node-to-workspace magic'
+shift-cmd-c = 'move-node-to-workspace calendar'
 
 # Move active ws to monitor 
 ctrl-alt-shift-cmd-p = 'move-workspace-to-monitor --wrap-around next'
@@ -215,11 +219,26 @@ r = ['flatten-workspace-tree', 'mode main'] # reset layout
 f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
 backspace = ['close-all-windows-but-current', 'mode main']
 
+# Enter swap mode
+ctrl-alt-shift-cmd-semicolon = 'mode swap'
+
+[mode.swap.binding]
+esc = 'mode main'
+
+h = ['swap left', 'mode main']
+j = ['swap down', 'mode main']
+k = ['swap up', 'mode main']
+l = ['swap right', 'mode main']
+
 # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
 #s = ['layout sticky tiling', 'mode main']
 
 [[on-window-detected]]
 # specifiy an app id and do something 
-# $ aerospace list-apps
+# $ aerospace list-apps  <- lists all app ideas 
 if.app-id = 'com.apple.finder'
 run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.iCal'
+run = 'move-node-to-workspace calendar'
