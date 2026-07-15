@@ -20,6 +20,7 @@ unset __conda_setup
 
 # use the r from the r env 
 export PATH="$HOME/miniconda3/envs/r-env/bin:$PATH"
+
 export EDITOR=nvim
 export VISUAL=nvim 
 export MANPAGER="nvim +Man!" # MAN opening in nvim 
@@ -46,6 +47,7 @@ alias notes='cd ~/dotfiles/notes'
 alias thesis='cd ~/repos/thesis'
 alias work='cd ~/repos/work'
 alias uni='cd ~/OneDrive\ -\ uni-bonn.de/Informatik/Master/CS-SS26'
+alias repos='cd ~/repos'
 
 # general
 alias e='exit'
@@ -77,8 +79,6 @@ alias gb='git branch'
 alias gbs='gb sort=committerdate'
 
 # uni pool remote access 
-alias uni-ssh='TERM=xterm-256color ssh peplaul0@login-stud.informatik.uni-bonn.de'
-alias muntanitz='TERM=xterm-256color ssh student-peplau@muntanitz.informatik.uni-bonn.de'
 
 # functions 
 jwtcurl() {
@@ -90,3 +90,16 @@ jwtcurl() {
   fi
   curl -i -H "Authorization: Bearer $token" "$url"
 }
+
+# starship completions 
+# Starship completions
+fpath=(~/.zfunc $fpath)
+autoload -Uz compinit
+compinit
+
+# plugins 
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#starship
+export STARSHIP_CONFIG=~/.config/starship/starship.toml 
+eval  "$(starship init zsh)"
