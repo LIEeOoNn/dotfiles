@@ -111,7 +111,7 @@ outer.right = 5
 alt-shift-l = "exec-and-forget pmset displaysleepnow"
 
 # Terminal
-ctrl-alt-shift-cmd-q = "exec-and-forget open -a /opt/homebrew/bin/kitty" 
+ctrl-alt-shift-cmd-q = 'exec-and-forget /Applications/kitty.app/Contents/MacOS/kitty --single-instance --directory "$HOME"'
 
 # File manager (Finder)
 ctrl-alt-shift-cmd-e = "exec-and-forget open $HOME"
