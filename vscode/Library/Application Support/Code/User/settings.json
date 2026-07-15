@@ -35,5 +35,36 @@
     "vim.neovimPath": "/opt/homebrew/bin/nvim",
     "vim.neovimConfigPath": "~/.config/nvim/init.lua",
     "vim.useSystemClipboard": true,
+    "pgsql.serverGroups": [
+        {
+            "name": "Servers",
+            "id": "45040B5E-60BD-47B5-AA73-0FE30FF49A47",
+            "isDefault": true
+        }
+    ],
+    "pgsql.connections": [
+        {
+            "id": "E090031A-53A8-45AE-991E-BEB740ABA59D",
+            "groupId": "45040B5E-60BD-47B5-AA73-0FE30FF49A47",
+            "authenticationType": "SqlLogin",
+            "connectTimeout": 15,
+            "applicationName": "vscode-pgsql",
+            "clientEncoding": "utf8",
+            "sslmode": "prefer",
+            "sshSavePassword": true,
+            "savePassword": true,
+            "sslRootCertMode": "none",
+            "connectionString": "Host=localhost;Port=5432;Database=gewerbe;Username=gewerbe;",
+            "password": "",
+            "server": "localhost",
+            "user": "gewerbe",
+            "port": "5432",
+            "database": "gewerbe",
+            "profileName": "GewerbePostgre",
+            "expiresOn": 0,
+            "sshPassword": ""
+        }
+    ],
+    "pgsql.openQueryResultsInTabByDefaultDoNotShowPrompt": true,
     "chat.viewSessions.orientation": "stacked",
 }
