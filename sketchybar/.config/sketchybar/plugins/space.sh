@@ -11,18 +11,29 @@ else
     WORKSPACE_ID="${NAME#space.}"
 fi
 
+# Show icons for named workspaces and keep the ID for all others
+case "$WORKSPACE_ID" in
+    cal)  LABEL="" ;;
+    mail) LABEL="" ;;
+    dis)  LABEL="󰙯" ;;
+    s)    LABEL="" ;;
+    *)    LABEL="$WORKSPACE_ID" ;;
+esac
+
+sketchybar --set "$NAME" label="$LABEL"
+
 # Get focused workspace
 FOCUSED=$(/opt/homebrew/bin/aerospace list-workspaces --focused)
 
 # Highlight if focused
 if [ "$WORKSPACE_ID" = "$FOCUSED" ]; then
-    sketchybar --set $NAME \
+    sketchybar --set "$NAME" \
         background.color=$MAUVE \
         background.drawing=on \
         background.y_offset=0 \
         label.color=$CRUST
 else
-    sketchybar --set $NAME \
+    sketchybar --set "$NAME" \
         background.drawing=off \
         label.color=$TEXT
 fi

@@ -7,8 +7,12 @@ source "$CONFIG_DIR/colors.sh"
 NON_EMPTY=($(/opt/homebrew/bin/aerospace list-workspaces --monitor focused --empty no))
 FOCUSED=$(/opt/homebrew/bin/aerospace list-workspaces --focused)
 
-# Combine workspaces to show (non-empty + focused)
-WORKSPACES_TO_SHOW=($(echo "${NON_EMPTY[@]}"$'\n'"$FOCUSED" | sort -un))
+# Combine and sort workspaces: numbers first, then named workspaces.
+# The awk step also removes duplicates while preserving every named workspace.
+WORKSPACES_TO_SHOW=($(printf '%s\n' "${NON_EMPTY[@]}" "$FOCUSED" \
+    | awk 'NF && !seen[$0]++ { if ($0 ~ /^[0-9]+$/) print "0 " $0; else print "1 " $0 }' \
+    | sort -k1,1n -k2,2n -k2,2 \
+    | cut -d' ' -f2-))
 
 # Get existing space items from SketchyBar
 EXISTING=($(sketchybar --query bar | jq -r '.items[] | select(startswith("space."))'))
@@ -43,6 +47,16 @@ for sid in "${WORKSPACES_TO_SHOW[@]}"; do
                   --subscribe "space.$sid" aerospace_workspace_change workspace_manager
     fi
 done
+
+# Keep existing items in the same deterministic order without reloading the bar.
+SPACE_ITEMS=()
+for sid in "${WORKSPACES_TO_SHOW[@]}"; do
+    SPACE_ITEMS+=("space.$sid")
+done
+
+if [ "${#SPACE_ITEMS[@]}" -gt 0 ]; then
+    sketchybar --reorder "${SPACE_ITEMS[@]}"
+fi
 
 # Force initial update
 sketchybar --trigger workspace_update
