@@ -131,7 +131,7 @@ ctrl-alt-shift-cmd-v = 'layout floating tiling'
 # switch workspace 
 ctrl-alt-shift-cmd-tab = 'workspace-back-and-forth'
 # switch monitors    inspired by a back-and-forth
-ctrl-alt-shift-cmd-m = 'focus-monitor --wrap-around next'
+shift-alt-m = 'focus-monitor --wrap-around next'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 # alt-slash = 'layout tiles horizontal vertical'
