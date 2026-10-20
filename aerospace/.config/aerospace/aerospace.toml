@@ -26,8 +26,7 @@ start-at-login = true
 persistent-workspaces = [
   '1', '2', '3', '4', '5',
   '6', '7', '8', '9', '10',
-  'magic',
-  'calendar'
+  'cal', 'dis', 'mail', 's'
 ]
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
@@ -169,8 +168,10 @@ ctrl-alt-shift-cmd-7 = 'workspace 7'
 ctrl-alt-shift-cmd-8 = 'workspace 8'
 ctrl-alt-shift-cmd-9 = 'workspace 9'
 ctrl-alt-shift-cmd-0 = 'workspace 10'
-ctrl-alt-shift-cmd-s = 'workspace magic'
-ctrl-alt-shift-cmd-c = ['workspace calendar', 'exec-and-forget open -a Calendar']
+ctrl-alt-shift-cmd-s = 'exec-and-forget /Users/leon/.config/aerospace/open-app-workspace.sh com.spotify.client s'
+ctrl-alt-shift-cmd-c = 'exec-and-forget /Users/leon/.config/aerospace/open-app-workspace.sh com.apple.iCal cal'
+ctrl-alt-shift-cmd-d = 'exec-and-forget /Users/leon/.config/aerospace/open-app-workspace.sh com.hnc.Discord dis'
+ctrl-alt-shift-cmd-m = 'exec-and-forget /Users/leon/.config/aerospace/open-app-workspace.sh com.apple.mail mail'
 
 # Move active window to a workspace with alt + shift + [0-9]
 shift-cmd-1 = 'move-node-to-workspace 1'
@@ -183,8 +184,11 @@ shift-cmd-7 = 'move-node-to-workspace 7'
 shift-cmd-8 = 'move-node-to-workspace 8'
 shift-cmd-9 = 'move-node-to-workspace 9'
 shift-cmd-0 = 'move-node-to-workspace 10'
-shift-cmd-s = 'move-node-to-workspace magic'
-shift-cmd-c = 'move-node-to-workspace calendar'
+shift-cmd-s = 'move-node-to-workspace s'
+shift-cmd-c = 'move-node-to-workspace cal'
+shift-cmd-d = 'move-node-to-workspace dis'
+shift-cmd-m = 'move-node-to-workspace mail'
+
 
 # Move active ws to monitor 
 ctrl-alt-shift-cmd-p = 'move-workspace-to-monitor --wrap-around next'
@@ -248,4 +252,17 @@ run = ['layout floating']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.iCal'
-run = 'move-node-to-workspace calendar'
+run = 'move-node-to-workspace cal'
+
+[[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
+run = 'move-node-to-workspace dis'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.mail'
+run = 'move-node-to-workspace mail'
+
+
+[[on-window-detected]]
+if.app-id = 'com.spotify.client'
+run = 'move-node-to-workspace s'
