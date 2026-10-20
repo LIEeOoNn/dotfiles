@@ -17,6 +17,8 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.wrap = true
 vim.opt.list = false -- stops displaying whitespaces as text 
 vim.opt.linebreak = true -- wraps text at the end of a word 
+-- abbreviations
+vim.cmd("iabbrev bmi b_{-i})")
 
 -- path for c# to work 
 vim.env.DOTNET_ROOT = "/opt/homebrew/opt/dotnet/libexec"
